@@ -1,6 +1,6 @@
-# sampleapp
+# Emmimmojiii
 
-> My transcendent Nuxt.js project
+> An Emoji Search application developed using Nuxt.js 
 
 ## Build Setup
 
