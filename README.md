@@ -19,7 +19,7 @@ $ npm run dev
 
 ## Project uses the emoji-api which can be taken from https://emoji-api.com/ and use the same key in nuxt.config.js wherever specified
 
-#nuxt.config.js looks like below
+# nuxt.config.js looks like below
 
 ```
 env: {
