@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <Snackbar/>
     <v-card class="overflow-hidden">
       <v-app-bar
         absolute
@@ -31,7 +32,7 @@
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
       </v-app-bar>
-      <v-sheet id="scrolling-techniques-2" class="overflow-y-auto" max-height="600">
+      <v-sheet id="scrolling-techniques-2" class="overflow-y-auto" max-height="100vh">
         <v-container style="height: 100vh;">
           <nuxt style="margin-top: 120px;" />
         </v-container>
@@ -41,7 +42,11 @@
 </template>
 
 <script>
+import Snackbar from '../components/Snackbar'
 export default {
+  components: {
+    Snackbar
+  },
   data() {
     return {
       clipped: false,
@@ -52,3 +57,7 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>

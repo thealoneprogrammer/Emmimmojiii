@@ -17,10 +17,22 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  /**
+   * Environment Variables
+   */
+
+  env: {
+    emoji_api_key: 'cee142c43fc26f53c658446447a93694d457b8e5'
+  },
+
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { 
+    color: 'yellow',
+    height: '5px'
+  },
   /*
   ** Global CSS
   */
@@ -30,6 +42,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/notifier.js',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -46,6 +59,7 @@ module.exports = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    'nuxt-clipboard2',
   ],
   /*
   ** Axios module configuration
