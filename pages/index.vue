@@ -1,8 +1,8 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
-      <Search v-on:search-emoji="searchEmoji"/>
-      <Emojis v-for="emoji in emojis" :emoji="emoji" :key="emoji.slug"/>
+      <Search v-on:search-emoji="searchEmoji" />
+      <Emojis v-for="emoji in emojis" :emoji="emoji" :key="emoji.slug" />
     </v-flex>
   </v-layout>
 </template>
@@ -19,7 +19,7 @@ export default {
     }
   },
   async created() {
-    const _apiKey = ''
+    const _apiKey = process.env.emoji_api_key
     const config = {
       headers: {
         accept: 'application/json'
@@ -32,14 +32,14 @@ export default {
       )
 
       this.emojis = response.data
-      console.log(this.emojis)
     } catch (error) {
       console.log(error)
     }
   },
-  methods:{
+  methods: {
     async searchEmoji(query) {
-       const _apiKey = ''
+      this.$nuxt.$loading.start()
+      const _apiKey = process.env.emoji_api_key
       const config = {
         headers: {
           accept: 'application/json'
@@ -47,12 +47,13 @@ export default {
       }
       try {
         const response = await axios.get(
-          `https://emoji-api.com/emojis?search=${query}` + `&access_key=${_apiKey}`,
+          `https://emoji-api.com/emojis?search=${query}` +
+            `&access_key=${_apiKey}`,
           config
         )
 
         this.emojis = response.data
-        console.log(this.emojis)
+        this.$nuxt.$loading.finish()
       } catch (error) {
         console.log(error)
       }
