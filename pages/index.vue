@@ -2,17 +2,26 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
       <Search v-on:search-emoji="searchEmoji" />
+      <Categories />
       <Emojis v-for="emoji in emojis" :emoji="emoji" :key="emoji.slug" />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Search from '../components/Search'
-import Emojis from '../components/Emojis'
+import Search from '@/components/Search'
+import Emojis from '@/components/Emojis'
+import Categories from '@/components/Categories'
 import axios from 'axios'
 
 export default {
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 1500)
+    })
+  },
   data() {
     return {
       emojis: []
@@ -38,7 +47,6 @@ export default {
   },
   methods: {
     async searchEmoji(query) {
-      this.$nuxt.$loading.start()
       const _apiKey = process.env.emoji_api_key
       const config = {
         headers: {
@@ -53,7 +61,6 @@ export default {
         )
 
         this.emojis = response.data
-        this.$nuxt.$loading.finish()
       } catch (error) {
         console.log(error)
       }
@@ -66,7 +73,8 @@ export default {
   },
   components: {
     Search,
-    Emojis
+    Emojis,
+    Categories
   }
 }
 </script>

@@ -26,7 +26,7 @@ export default {
       mode: '',
       snackbar: false,
       text: '',
-      timeout: 6000,
+      timeout: 3000,
       x: null,
       y: 'bottom'
     }

@@ -12,7 +12,6 @@
   </v-tooltip>
 </template>
 <script>
-
 export default {
   name: 'Emoji',
   props: ['emoji'],
@@ -22,6 +21,13 @@ export default {
     }
   },
   methods: {
+    mounted() {
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+
+        setTimeout(() => this.$nuxt.$loading.finish(), 2000)
+      })
+    },
     async copyEmoji(emoji) {
       try {
         await this.$copyText(emoji)
