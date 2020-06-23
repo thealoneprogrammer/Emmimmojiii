@@ -23,7 +23,7 @@ module.exports = {
    */
 
   env: {
-    emoji_api_key: 'cee142c43fc26f53c658446447a93694d457b8e5'
+    emoji_api_key: 'your_emoji_api_key'
   },
 
   /*
