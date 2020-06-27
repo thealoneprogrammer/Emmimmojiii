@@ -2,6 +2,11 @@
 
 > An Emoji Search application developed using Nuxt.js 
 
+## Take a demo build
+
+https://emmimmojiiii.herokuapp.com/
+
+
 ## Build Setup
 
 ```bash
