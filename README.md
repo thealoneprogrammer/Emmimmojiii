@@ -2,7 +2,7 @@
 
 > An Emoji Search application developed using Nuxt.js 
 
-## Take a demo build
+## Take a demo below
 
 https://emmimmojiiii.herokuapp.com/
 
